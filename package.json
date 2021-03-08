@@ -8,7 +8,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
-    "telegram": "ts-node-dev --transpile-only --ignore-watch node_modules src/telegram/index.ts"
+    "telegram": "ts-node-dev --transpile-only --ignore-watch node_modules src/Telegram/index.ts"
   },
   "devDependencies": {
     "@types/node": "^14.14.32",
