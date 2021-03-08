@@ -1,0 +1,22 @@
+{
+  "name": "kindle-newsletter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:NormanFrieman/kindle-newsletter.git",
+  "author": "NormanFrieman <ezequiel-d.s@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
+    "telegram": "ts-node-dev --transpile-only --ignore-watch node_modules src/telegram/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.32",
+    "dotenv": "^8.2.0",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "telegraf": "^4.1.2"
+  }
+}
