@@ -1,1 +1,1 @@
-# kindle-newsletter
+# Kindle Newsletter
