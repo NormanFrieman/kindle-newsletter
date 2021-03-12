@@ -1,5 +1,7 @@
 export const generatePDF = async (name: string, url: string) => {
 //(async () => {
+    console.log('[GENERATE PDF] Start PDF generation');
+    console.log(`[GENERATE PDF] Name: ${name} / URL: ${url}`);
     const puppeteer = require('puppeteer');
 
     const browser = await puppeteer.launch();
