@@ -1,12 +1,12 @@
 import { Telegraf } from 'telegraf';
 import { RouteTelegram } from './router';
 
-export const telegram = (generatePdf: Function, sendMail: Function) => {
+export const telegram = () => {
     require('dotenv/config');
 
     const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
-    const routeTelegram = new RouteTelegram(generatePdf, sendMail);
+    const routeTelegram = new RouteTelegram();
     const route = routeTelegram.handle();
 
     bot.use(route);

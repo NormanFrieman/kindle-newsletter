@@ -1,13 +1,13 @@
-export const sendMail = async (name: string) => {
-//(async () => {
+import { Status } from '../protocols';
+
+export const sendMail = async (name: string): Promise<Status> => {
+    const fs = require('fs');
     require('dotenv/config');
 
     console.log('[SEND MAIL] Start sending mail');
     console.log(`[SEND MAIL] Name: ${name}`);
 
     const nodemailer = require('nodemailer');
-
-//    const name = 'webpage.pdf';
 
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
@@ -26,15 +26,20 @@ export const sendMail = async (name: string) => {
             subject: 'convert',
             text: ' ',
             attachments: [{
-                filename: name,
-                path: `${name}`
+                filename: `${name}.pdf`,
+                path: `./${name}.pdf`
             }]
         });
 
         console.log('Message sent: ' + info.messageId);
         console.log('Preview URL: ' + nodemailer.getTestMessageUrl(info));
+
+        fs.unlinkSync(`./${name}.pdf`);
+
+        console.log('[SEND MAIL] Mail successfully sent');
+        return { status: true, message: 'Mail successfully sent' };
     }catch(err){
-        console.log(err);
+        console.log(`[SEND MAIL] ${err.message}`);
+        return { status: false, message: err.message };
     }
 }
-//})();
