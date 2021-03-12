@@ -10,7 +10,8 @@
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
     "telegram": "ts-node-dev --transpile-only --ignore-watch node_modules src/Telegram/index.ts",
     "pdf": "ts-node-dev --transpile-only --ignore-watch node_modules src/GeneratePDF/index.ts",
-    "mail": "ts-node-dev --transpile-only --ignore-watch node_modules src/SendMail/index.ts"
+    "mail": "ts-node-dev --transpile-only --ignore-watch node_modules src/SendMail/index.ts",
+    "start": "node build/server.js"
   },
   "devDependencies": {
     "@types/node": "^14.14.32",
