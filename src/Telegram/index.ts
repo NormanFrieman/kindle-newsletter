@@ -1,10 +1,16 @@
-require('dotenv/config');
 import { Telegraf } from 'telegraf';
-import { route } from './router';
+import { RouteTelegram } from './router';
 
-const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
+export const telegram = (generatePdf: Function, sendMail: Function) => {
+    require('dotenv/config');
 
-bot.use(route);
+    const bot = new Telegraf(process.env.TELEGRAM_TOKEN);
 
-console.log('[TELEGRAM] Bot started');
-bot.launch();
+    const routeTelegram = new RouteTelegram(generatePdf, sendMail);
+    const route = routeTelegram.handle();
+
+    bot.use(route);
+
+    console.log('[TELEGRAM] Bot started');
+    bot.launch();
+}
