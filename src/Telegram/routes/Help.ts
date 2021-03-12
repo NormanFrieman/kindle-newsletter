@@ -4,6 +4,6 @@ import { Route } from '../protocols';
 
 export class Help implements Route{
     handle(ctx: Context){
-        ctx.reply('Commands list:\n\n/newlink <url>: Generate .mobi file and send to kindle');
+        ctx.reply('Commands list:\n\n/create <url>: Generate .mobi file and send to kindle\n');
     }
 }

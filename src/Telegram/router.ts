@@ -1,7 +1,7 @@
 require('dotenv/config');
 import { Telegraf } from 'telegraf';
 
-import { Help, NewLink, Start, GenerateKindle } from './routes';
+import { Help, Start, GenerateKindle } from './routes';
 
 export class RouteTelegram{
     constructor(
@@ -17,9 +17,6 @@ export class RouteTelegram{
         
         const help = new Help();
         route.command('help', help.handle);
-        
-        const newLink = new NewLink();
-        route.command('newlink', newLink.handle);
         
         const generateKindle = new GenerateKindle(this.generatePdf, this.sendMail);
         route.command('create', generateKindle.handle);
